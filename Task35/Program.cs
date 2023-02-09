@@ -21,8 +21,6 @@ int IntervalCount(int[] arr)            // Метод подсчета элем�
     return count;                           // Возвращаем счетчик
 }
 
-
-
 Console.Clear();
 int[] array = GetArray();                        // Задаём массив
 Console.Write($"{String.Join(", ", array)}");    // Выводим массив в консоль
