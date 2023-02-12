@@ -11,7 +11,7 @@ Console.Write($"Max - Min = {MinMaxDifference(array):f2}"); // Вычисляе�
 
 double[] GetArray(int size, double minVal, double maxVal)   // Метод задания массива случайных чисел.
 {
-    double[] arr = new double[size]; 
+    double[] arr = new double[size];
     for (int i = 0; i < size; i++)
         arr[i] = new Random().NextDouble() * (maxVal - minVal) + minVal;
     return arr;
@@ -19,22 +19,22 @@ double[] GetArray(int size, double minVal, double maxVal)   // Метод зад
 
 double MinMaxDifference(double[] arr)     // Метод нахождения разницы между максимальным и минимальным элементами массива
 {
-        double min = arr[0];
-        double max = arr[0];
+    double min = arr[0];
+    double max = arr[0];
 
-        foreach (var i in arr)            // Перебираем массив и ищем минимальное и максимальное
-        {
-            min = i < min ? i : min;
-            max = i > max ? i : max;
-        }
+    foreach (var i in arr)            // Перебираем массив и ищем минимальное и максимальное
+    {
+        min = i < min ? i : min;
+        max = i > max ? i : max;
+    }
 
-        Console.WriteLine($"Min = {min:f2} Max = {max:f2}");   //необязателная стока (для наглядности)
-        double dif = max - min;                                // Вычисляем разницу
+    Console.WriteLine($"Min = {min:f2} Max = {max:f2}");   //необязателная стока (для наглядности)
+    double dif = max - min;                                // Вычисляем разницу
     return dif;                                                //Возвращаем результат
 }
 
 void OutPutArray(double[] arr)    // Метод вывода элементов массива в консоль с двумя знаками после запятой
-{                                 
-    foreach(var i in arr)
+{
+    foreach (var i in arr)
         Console.Write($"{i:f2} ");
 }
