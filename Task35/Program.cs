@@ -4,25 +4,30 @@
 // [1, 2, 3, 6, 2] -> 0
 // [10, 11, 12, 13, 14] -> 5
 
-int[] GetArray()                        // Метод задания массива случайных чисел. Сразу подставляем параметры.
+Console.Clear();
+int[] array = GetArray(123, 0, 1000);                // Задаем массив из 123 случайных чисел [0:1000)
+Console.Write($"{String.Join(", ", array)}");        // Выводим массив в консоль
+Console.WriteLine();
+Console.Write($"Количество элементов лежащих в интервале [10,99] =  {CountInInterval(array, 10, 99)}");  // Находим количество значений [10,99] и выводим в консоль
+
+
+int[] GetArray(int size, int minVal, int maxVal)                // Метод задания массива случайных чисел.
 {
-    int[] arr = new int[123];                // Создаем пустой массив на 123 элемента
-    for (int i = 0; i < 123; i++)            // Циклом for перебираем все элементы массива
-        arr[i] = new Random().Next(0, 1000); // Присваиваем элементу массива рандомное число в интервале [0:1000)
-    return arr;                             // Возвращаем массив
+    int[] arr = new int[size];
+
+    for (int i = 0; i < size; i++)
+        arr[i] = new Random().Next(minVal, maxVal);
+
+    return arr;
 }
 
-int IntervalCount(int[] arr)            // Метод подсчета элементов            
+int CountInInterval(int[] arr, int minValue, int maxValue)     // Метод подсчета элементов
 {
     int count = 0;
-    for (int i = 0; i < arr.Length; i++)    // Циклом for перебираем все элементы массива
-        if (arr[i] > 9 && arr[i] < 100)     // Условие: принаждежит ли элемент массива интервалу [10:99]
-            count++;                        // Счетчик +1
-    return count;                           // Возвращаем счетчик
+    
+    foreach (int i in arr)                     // Перебираем все элементы массива
+        if (i >= minValue && i <= maxValue)    // Условие: принаждежит ли элемент массива заданному интервалу
+            count++;                           // Счетчик +1
+            
+    return count;                              // Возвращаем счетчик
 }
-
-Console.Clear();
-int[] array = GetArray();                        // Задаём массив
-Console.Write($"{String.Join(", ", array)}");    // Выводим массив в консоль
-Console.WriteLine();      
-Console.Write($"Количество элементов лежащих в интервале [10,99] =  {IntervalCount(array)}");   // Выводим результат в консоль
