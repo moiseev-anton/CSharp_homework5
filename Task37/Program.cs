@@ -8,7 +8,7 @@ Console.Clear();
 Console.WriteLine("Введите элементы массива через пробел");
 string elements = Console.ReadLine()!;                        // Считываем строку из консоли 
 int[] array = StringToArray(elements);                        // Переводим строку в массив целых чисел
-int[] newArray = PairMultiplication(array);                   // Формируем новый массив попарно перемноженых элементов
+int[] newArray = PairWiseMultiply(array);                     // Формируем новый массив попарно перемноженых элементов
 Console.Write($"{String.Join(" ", newArray)}");               // Выводим новый массив
 
 
@@ -19,12 +19,12 @@ int[] StringToArray(string stringElements)                                      
     int[] result = new int[nums.Length];                                                     // Создаем новый пустой массив для целых чисел
 
     for (int i = 0; i < nums.Length; i++)                                                    // При помощи цикла for каждый элемента массива строк конвертируем в целое число
-        result[i] = Convert.ToInt32(nums[i]);                                                //  и присваиваем значение каждому соответствующему элементу пустого массива
+        result[i] = Convert.ToInt32(nums[i]);                                                //  и присваиваем получившееся значение каждому соответствующему элементу нового пустого массива
 
     return result;                                                                           // Возвращаем целочисленный массив 
 }
 
-int[] PairMultiplication(int[] arr)             // Метод попарного перемножения элементов массива                             
+int[] PairWiseMultiply(int[] arr)             // Метод попарного перемножения элементов массива                             
 {
     int[] result;                                      // Массив, в который будем заносить результат.
 
